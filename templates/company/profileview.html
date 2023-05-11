@@ -1,0 +1,180 @@
+{% extends 'head.html' %}
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <style>
+            .img1{
+                   
+                width: 100%;
+    height: 20vh;
+    position: relative;
+    bottom: 55px;
+}
+        </style>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>JobUp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+            <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+            <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+            <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+            <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+            <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    
+    
+   
+                     <!-- Support Company Start-->
+                     <div class="support-company-area support-padding fix">
+                        <div class="container">
+                            
+                            <div class="row align-items-center">
+                                <div class="col-xl-6 col-lg-6">
+                                    {% for data in profile %}
+                                    <div class="right-caption">
+                                        <!-- Section Tittle -->
+                                        
+                                        <div class="section-tittle section-tittle2">
+                                            <span>"{{data.quotes}}"</span>
+                                            <h2>{{data.companynames}}</h2>
+                                        </div>
+                                        <div class="support-caption">
+                                            <p class="pera-top">{{data.descriptions}}</p>
+                                             
+                                            <a href="{% url 'jobcreate' %}" class="btn post-btn">Post a job</a>
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    {% for data in profile %}
+                                    <div class="support-location-img">
+                                        {% if data.images %}
+                                            <img class="img" src="{{ data.images.url }}" alt="#">
+                                        {% endif %}
+                                        <div class="support-img-cap text-center">
+                                            <p>Since</p>
+                                            <span>{{data.establisheds}}</span>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                     
+                    
+                    <div class="home-blog-area blog-h-padding">
+                        <div class="container">
+                            <!-- Section Tittle -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="section-tittle text-center">
+                                        <span>Our latest blog</span>
+                                        <h2>Our recent news</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="home-blog-single mb-30">
+                                        <div class="blog-img-cap">
+                                            <div class="blog-img">
+                                                <img src="assets/img/blog/home-blog1.jpg" alt="">
+                                                <!-- Blog date -->
+                                                <div class="blog-date text-center">
+                                                    <span>24</span>
+                                                    <p>Now</p>
+                                                </div>
+                                            </div>
+                                            <div class="blog-cap">
+                                                <p>|   Properties</p>
+                                                <h3><a href="single-blog.html">Footprints in Time is perfect House in Kurashiki</a></h3>
+                                                <a href="#" class="more-btn">Read more »</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <div class="home-blog-single mb-30">
+                                        <div class="blog-img-cap">
+                                            <div class="blog-img">
+                                                <img src="assets/img/blog/home-blog2.jpg" alt="">
+                                                <!-- Blog date -->
+                                                <div class="blog-date text-center">
+                                                    <span>24</span>
+                                                    <p>Now</p>
+                                                </div>
+                                            </div>
+                                            <div class="blog-cap">
+                                                <p>|   Properties</p>
+                                                <h3><a href="single-blog.html">Footprints in Time is perfect House in Kurashiki</a></h3>
+                                                <a href="#" class="more-btn">Read more »</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blog Area End -->
+            
+                </main>
+              
+
+  <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <script src="{% static 'js/price_rangs.js' %}"></script>
+        
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<script src="{% static 'js/animated.headline.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/jquery.sticky.js' %}"></script>
+        
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/jquery.form.js' %}"></script>
+        <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'js/mail-script.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        
+    </body>
+</html>
+{% endblock content %}

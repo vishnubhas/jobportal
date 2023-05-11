@@ -1,0 +1,145 @@
+{%extends 'head.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+     <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'button.css' %}">
+    <style>
+        .len{
+            margin-left: 25%;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- Preloader Start -->
+   
+    
+    <!-- Hero Area Start-->
+    <div class="slider-area ">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{%static 'img/hero/about.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <div class="form-group">
+                                <div class="hero-cap text-center shadow">
+                                    <h2>Login</h2>
+                                </div>
+                                <form class="form-contact contact_form" method="post"  >
+                                    {% csrf_token %}
+                                   
+                                        <div class="col-sm-6 len ">
+                                            <div class="form-group">
+                                                <input class="form-control valid text-light" name="username"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Firstname'" placeholder="Enter your First name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 len">
+                                            <div class="form-group">
+                                                <input class="form-control valid text-light " name="password"  type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Firstname'" placeholder="password">
+                                            </div>
+                                        </div>
+                                              
+                                        
+                                        
+                                      
+                                    
+                                    <div class="form-group mt-3">
+                                        <button type="submit" class="button button-contactForm boxed-btn">Sign in</button>
+                                    </div>
+                                    
+
+                                </form>
+                                {% for msg in messages %}
+                                    {% if msg == True %}
+                                        <div class="alert alert-success" role="alert">
+                                            <h4 class="alert-heading">Well done!</h4>
+                                            <p><span>{{msg}}</span></p>
+                                  
+                                        </div>
+                                    {% else %}
+                                        <div class="alert alert-danger" role="alert">
+                                            <h4 class="alert-heading">Sorry!</h4>
+                                            <p><span>{{msg}}</span></p>
+                                
+                                        </div>
+                                        
+                                    {% endif %}
+                               
+                               {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero Area End -->
+    <!--================Blog Area =================-->
+                                    
+                            
+
+    <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <script src="{% static 'js/price_rangs.js' %}"></script>
+
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<script src="{% static 'js/animated.headline.js' %}"></script>
+		
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js' %}"></script>
+        <script src="{% static 'js/jquery.form.js' %}"></script>
+        <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'js/mail-script.js' %}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
+{% endblock content%}
