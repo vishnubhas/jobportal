@@ -116,7 +116,7 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                     <div class="home-blog-single mb-30">
                                         <div class="blog-img-cap">
-                                         
+                                            {% for  work in  work %}
                                             <div class="blog-img">
                                                 {% if  work.image %}
                                                 <img src="{{  work.image.url }}" alt="">
@@ -129,11 +129,12 @@
                                             </div>
                                             <div class="blog-cap">
                                                 <p>|  {{ work.work}} </p>
-                                                <h3><a href="single-blog.html">{{ work.short_dic}} </a></h3>
+                                                <h3><a href="">{{ work.short_dic}} </a></h3>
                                                  
-                                                <a href="{% url 'recent_post_detail'   %}" class="more-btn">Read more »</a>
+                                                <a href="{% url 'comrecent'   %}" class="more-btn">Read more »</a>
                                              
                                             </div>
+                                            {% endfor  %}
                                           
                                         </div>
                                     </div>

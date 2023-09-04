@@ -31,9 +31,9 @@
                 </div>
                
                 {% if serach %}
-               
+                {% for serach in serach %}
                     <div class="row">
-                        {% for serach in serach %}
+                       
                         <div class="col-lg-4 col-md-6">
                             <div class="single-process text-center mb-30">
                                 <div class="process-ion">
@@ -50,9 +50,11 @@
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                       
+                        
                     </div>
                     
+                    {% endfor %}
                 {% else %}
                 <div class="row">
                     <div class="col-lg-12">
@@ -63,8 +65,9 @@
                     </div>
                 </div>
                 {% endif %}
+                
                   
-                   
+                <button class="btn"><a href="{% url 'job_histroy' serach.id %}"></a></button>
 
 
              </div>

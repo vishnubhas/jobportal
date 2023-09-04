@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@icon/entypo@1.0.3/entypo.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+   <!-- <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+   <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+   <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+   <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+   <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+   <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+   <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+   <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+   <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+   <link rel="stylesheet" href="{% static 'css/profile2.css' %}"> -->
+    <title>Profile</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="top-breadcrumb">
+                <nav aria-label="breadcrumb">
+                   <h1>Profile Page</h1>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for i in userprofile %}
+        <div class="col-lg-3 ">
+            <div class="card left-profile-card">
+                <div class="card-body">
+                    <div class="text-center">
+                        {% if i.image %}
+                        <img src="{{ i.image.url }}" alt="" class="img1 user-profile">
+                        {% endif %}
+                        <h3>{{i.name}}</h3>
+                        <p>{{i.skill}}</p>
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                            <i class="fas fa-star text-info"></i>
+                        </div>
+                    </div>
+                    <div class="personal-info">
+                        <h3>Personal Information</h3>
+                        <ul class="personal-list">
+                            <i class="fa-brands fa-github"></i><span>{{i.git}}</span></li>
+                            <li><i class="fas fa-map-marker-alt "></i><span>{{i.street}},{{i.city}},{{i.state}}</span></li>
+                            <li><i class="far fa-envelope "></i><span>{{i.email}}</span></li>
+                            <li><i class="fas fa-mobile "></i><span>{{i.phone}}</span></li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'edit' i.id %}" class="link">Edit Me</a><br>
+                    <div class="skill">
+                        <h3>Skills</h3>
+                        {% for i in skill%}
+                        <p>{{i.skills}}</p>
+                        
+                        <div class="progress1 mb-3" style="width:"{{ i.experiance }}"%;">
+                            
+                            <div class="" role="progressbar"></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="skill">
+                        <h3>Language</h3>
+                        <hr>
+                        {% for  l in lang %}
+                        <ul>
+                            <a href="{% url 'l_d' l.id %}"><li>{{ l.language }}</li></a>
+                        </ul>
+                        <div class="progress1 mb-3" style="width:"{{ l.level }}% ";">
+                            
+                            <div class="" role="progressbar"></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a href="{% url 'lang' %}" class="links">+add</a>
+
+                    <div class="skill">
+                        <h3>Soft Skills</h3>
+                        <hr>
+                        {% for s in softskill %}
+                        <ul>
+                            <a href="{% url 's_d' s.id%}"><li>{{s.softskill}}</li></a>
+                        </ul>
+                        {% endfor %}
+                    </div>
+                    <a href="{% url 'sskill' %}" class="links">+add</a>
+                    
+                  
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-lg-9">
+            <div class="card right-profile-card">
+                <div class="card-header alert-primary">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: rgb(49, 5, 153); font-size: 50px;" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-selected="true">Personal Details</a>
+                        </li>
+                        
+                    </ul>
+                    <a href="{% url 'user_index' %}" class="links">Go Home</a>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                          <div class="work-container">
+                            {% if work %}
+                                   
+                                        <h2>Work experiance</h2><a href="{% url 'work_experiance' %}" class="links">+add work </a><hr>
+                                        {% for work in work%}
+                                        <h3 style="text-decoration:underline;">{{forloop.counter}}. {{ work.title }} :- {{ work.position }}</h3>
+                                        <h4><i class="far fa-calendar-alt"></i>{{ work.stating_date }} to  <span class="badge badge-info">{{ work.end_date}}</span></h4>
+                                        <p>{{ work.discription}}</p>
+                                        {% endfor %}
+                                    </div>
+                            {% else  %}
+                            <div class="work-container">
+                                <h2>Work experiance</h2><hr>
+                               
+                                <h3 style="align-items: center; display: flex; justify-content: center; color: brown;">Add More About Your Work  </h3><br><a href="{% url 'work_experiance' %}" class="links">+add work </a>
+                                
+                            </div>
+                            {% endif %}
+                            {% if education %}
+                            <h2>
+                                Education 
+                            </h2><a href="{% url 'education' %}" class="links">+add education</a><hr>
+                            <div class="work-container">
+                                {% for i in education %}
+                                <h3 style="text-decoration:underline;">{{forloop.counter}}. {{ i.college }} :-</h3>
+                                <h4>
+                                   Department : - {{i.department}}
+                                </h4>
+                                <h4><i class="far fa-calendar-alt"></i>{{ i.start }} to <span class="badge badge-info">{{ i.end }}</span></h4>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <div class="work-container">
+                                <h2>Educations</h2><hr>
+                               
+                                <h3 style="align-items: center; display: flex; justify-content: center; color: brown;">Add More About Your Education  </h3><br><a href="{% url 'education' %}" class="links">+add education </a>
+                                
+                            </div>
+                            {% endif %}
+                        
+                        {% if project %}
+                        <h2>
+                            Projects 
+                        </h2><a href="{% url 'project' %}" class="links">+add projects</a><hr>
+                        <div class="work-container">
+                            {% for project in project %}
+                            <h3 style="text-decoration:underline;">{{forloop.counter}}. {{ project.project }}:-</h3>
+                            <h4><i class="far fa-calendar-alt"></i>{{ project.start }} to <span class="badge badge-info">{{ project.end }}</span></h4>
+                            <p>{{ project.description}}</p>
+                            {% endfor %}
+                        </div>
+                        <hr>
+                        {% else %}
+                        <div class="work-container">
+                            <h2>Projects</h2><hr>
+                           
+                            <h3 style="align-items: center; display: flex; justify-content: center; color: brown;">Add Your Projects  </h3><br><a href="{% url 'project' %}" class="links">+add projects </a>
+                            
+                        </div>
+                        {% endif %}
+                        {% if certificate%}
+                        <h2>
+                            Certifications
+                        </h2><a href="{% url 'certificate' %}" class="links">+add certificates</a><hr>
+                        <div class="work-container">
+                            {% for certificate in certificate %}
+                            <h3 style="text-decoration:underline;">{{forloop.counter}}. {{ certificate.company }}</h3>
+                           
+                            <h4>{{certificate.certificate_name}}</h4>
+                            <p><a href="{{certificate.certificate.url}}">click me</a></p>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="work-container">
+                            <h2>Certification</h2><hr>
+                           
+                            <h3 style="align-items: center; display: flex; justify-content: center; color: brown;">Add Your Certificate  </h3><br><a href="{% url 'certificate' %}" class="links">+add certificate </a>
+                            
+                        </div>
+                        {% endif %}
+
+                        <h2>
+                             {% if skill %}
+                            IT Skills
+                        </h2><a href="{% url 'itskill' %}" class="links">+add skills</a><hr><hr>
+                        <div class="work-container">
+                            {% for skill in skill%}
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">sl:no</th>
+                                    <th scope="col">skill</th>
+                                    <th scope="col">version</th>
+                                    <th scope="col">last-used</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">{{forloop.counter}}</th>
+                                    <td>{{skill.skills}}</td>
+                                    <td>{{skill.vertion}}</td>
+                                    <td>{{ skill.last_used }}</td>
+                                  </tr>
+                                  
+                                </tbody>
+                              </table>
+                            
+                      
+                        {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="work-container">
+                            <h2>IT skills</h2><hr>
+                           
+                            <h3 style="align-items: center; display: flex; justify-content: center; color: brown;">Add Your Skills  </h3><br><a href="{% url 'itskill' %}" class="links">+add Skill </a>
+                            
+                        </div>
+                        {% endif %}
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

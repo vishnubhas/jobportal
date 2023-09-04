@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>JobEntry - Job Portal Website Template</title>
+    <title>JobUp -- jobli</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -81,7 +81,7 @@
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
                                         {% if serach.image  %}
                                         <img class="flex-shrink-0 img-fluid border rounded" src="{{  serach.image.url }}" alt="" style="width: 80px; height: 80px; " >
-                                        {% endif %}
+                                           {% endif %}
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3"><a href="{% url 'job_details' serach.id %}">{{serach.title }}</a></h5>
                
@@ -97,8 +97,9 @@
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{serach.created}}</small>
                                     </div>
                                 </div>
-                                
+                               
                             </div>
+                            
                             {% endfor %}
                         {% else %}
                             <div class="job-item p-4 mb-4">
@@ -118,6 +119,9 @@
                             <a class="btn btn-primary py-3 px-5" href="{% url 'user_index'  %} ">Browse More Jobs</a>
                             {% endif %}
                         </div>
+                       
+                       
+                        
                     </div>
                 </div>
             </div>

@@ -112,12 +112,13 @@
                                             <li><a href="{% url 'user_index' %}">Home</a></li>
                                             <li><a href="#">About</a></li>
                                             <li><a href="{% url 'personal' %}">User profile</a></li>
+                                            <li><a href="{% url 'job_history' %}">Job History</a></li>
                                             {% elif request.user.role == 'ADMIN' %}
                                             
                                             <li><a href="#">Home</a></li>
                                             <li><a href="#">About</a></li>
-                                            <li><a href="{% url 'company_view' %}">Company profile</a></li>
-                                            <li><a href="#">User Details</a></li>
+                                            <li><a href="{% url 'com_request'  %}">Company Request</a></li>
+                                           
                                           
 
                                             {% endif %}
@@ -128,10 +129,10 @@
                               
                                 <div class="media-object-container ml-auto">
                                     <div class="media m0 pv">
-                                        <div class="media-left"><a href="{% url 'personal' %}"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User" class="media-object img-circle thumb"></a></div>
+                                        <div class="media-left"><a href=""><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User" class="media-object img-circle thumb"></a></div>
                                         <div class="media-body media-middle">
                                             <h4 class="media-heading text-secondary">{% if request.user.role %}
-                                                <span><h6>{{ request.user.username }}</h6></span>
+                                                <span><a href="{% url 'view' %}"><h6>{{ request.user.username }}</h6></a></span>
                                                 
                                                {% endif %}
                                             </h4>

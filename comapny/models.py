@@ -1,6 +1,7 @@
 from django.db import models
 from account.models import *
 from adminapp.models import Admin_view
+from jo.models import *
 
 # Create your models here.
 
@@ -13,9 +14,9 @@ class  Companyprofile(models.Model):
     emails=models.EmailField(null=True,blank=True)
     establishes=models.CharField(max_length=200)
     quotes=models.TextField(max_length=200)
-    websites=models.CharField(max_length=300,unique=True)
-    gits=models.CharField(max_length=300,unique=True)
-    youtubes=models.CharField(max_length=300,unique=True)
+    websites=models.CharField(max_length=300)
+    gits=models.CharField(max_length=300)
+    youtubes=models.CharField(max_length=300)
    
     images=models.ImageField(upload_to='company_image/',null=True,blank=True)
    
@@ -24,7 +25,7 @@ class  Companyprofile(models.Model):
     state=models.CharField(max_length=200)
     pincode=models.PositiveBigIntegerField()
     ref_profle=models.ForeignKey(Company,on_delete=models.CASCADE)
-    # is_request = models.BooleanField(default=False)
+    is_request = models.BooleanField(default=False)
    
  
     
@@ -45,7 +46,7 @@ class   RecentWork(models.Model):
 class Jobpost(models.Model):
     user=models.ForeignKey(Company,on_delete=models.CASCADE)
     
-    title = models.CharField(max_length=100)
+    title= models.CharField(max_length=100)
     description = models.TextField()
     short_description = models.TextField()
     job_field=models.CharField(max_length=20)
@@ -63,33 +64,7 @@ class Jobpost(models.Model):
     created=models.DateTimeField(auto_now_add=True)
     update=models.DateTimeField(auto_now=True)
     image=models.ImageField(upload_to='job_image/',null=True,blank=True)
-   
 
-    # education=(
-    # ('+2','+2'),
-    # ('Degree','Degree'),
-    # ('btech', 'Btech'),
-    
-    # )
-    # experiance=(
-    #     ('fresher','fresher'),
-    #     ('1 year above','1 year above'),
-    #     ('2-3year above','2-3year above'),
-    #     ('4-5 year above ','4-5 year above ')
-    # )
-    
-    # companyname=models.CharField(max_length=200)
-    # jobname=models.CharField(max_length=200)
-    # qualification=models.CharField(max_length=100,choices=education,default='+2')
-    # experiances=models.CharField(max_length=100,choices=experiance,default='fresher')
-    # description=models.TextField()
-    # shortdes=models.TextField()
-    # requiredskill=models.CharField(max_length=200)
-    # vaccancy=models.IntegerField(10)
-    # created=models.DateTimeField(auto_now_add=True)
-    # update=models.DateTimeField(auto_now=True)
-    # refmodel=models.OneToOneField(Companyprofile,on_delete=models.CASCADE)
-    # ref_company=models.ForeignKey(Company,on_delete=models.CASCADE)
     
    
   
@@ -118,3 +93,8 @@ class Fields(models.Model):
     fields=models.CharField(max_length=200,choices=fields,default="IT Field")
     company_profile=models.ForeignKey(Companyprofile,on_delete=models.CASCADE)
     company_user=models.ForeignKey(Company,on_delete=models.CASCADE)
+
+
+
+
+    

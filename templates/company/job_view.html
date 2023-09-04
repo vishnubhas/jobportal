@@ -45,6 +45,17 @@
         
             <!-- Template Stylesheet -->
             <link href="{% static 'css/job/style.css' %}" rel="stylesheet">
+            <style>
+                .inp{
+                    width: 141%;
+    height: 9vh;
+                    border-radius: 10px;
+                    border: 0px;
+                    color: black;
+                    background-color: rgba(110, 110, 110, 0.459);
+
+                }
+            </style>
    </head>
 
    <body>
@@ -65,9 +76,10 @@
                                     </a>
                                   
                                 </div>
+                                <br>
                                 <div>
                                     {% if  job.image %}
-                                    <img  style="width: 80%;" src="{{  job.image.url }}" alt="">
+                                    <img  style="width: 80%; height: 50vh;" src="{{  job.image.url }}" alt="">
                                     {%  endif  %}
                                 </div>
                             </div>
@@ -125,6 +137,12 @@
                                 </ul>
                                
                             </div>
+                            <div class="btn">
+                                <a href="{% url 'job_edit' job.id %}" class="btn"> Edit</a>
+                             </div>
+                             <div class="btn">
+                                <a href="{% url 'job_delete' job.id %}" class="btn"> Delete</a>
+                             </div>
                         </div>
 
                     </div>
@@ -150,7 +168,92 @@
                     
                         
                        {% endfor %}
+                       <div class="comments-area">
+                        <h4><i class="fa fa-comments"></i>{{ total }} Comments</li></h4>
+                        {% if comment %}
+                                {% for comment in comment %}
+                                <div class="comment-list">
+                                
+                                <div class="single-comment justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        
+                                        <div class="thumb">
+                                            <h5>
+                                            <a href="#">{{ comment.user}}</a>
+                                            
+                                            </h5> 
+                                        </div>
+                                    
+                                        <div class="desc">
+                                        
+                                            <p class="comment">
+                                            {{ comment.comment}}
+                                            </p>
+                                            <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                
+                                                <p class="date">{{ comment.date }} </p>
+                                            </div>
+                                            
+                                          
+                                            </div>
+                                            <!-- {% if repaly %}
+                                            <p>--------replay-------</p>
+                                            {% for repaly in repaly %}
+                                            <div class="d-flex align-items-center">
+                                                
+                                                <p class="date">repaly to @{{comment.user }} {{ repaly.replay }} </p>
+                                            </div>
+                                            {% endfor %}
+                                            {% endif %}
+                                            <div id="mc_embed_signup">
+                                                <form 
+                                                method="post" class="subscribe_form relative mail_part">
+                                                {% csrf_token %}
+                                                    <input type="text" name="replay" id="newsletter-form-email" 
+                                                    class="inp" placeholder="replay to  @{{comment.user}}">
+                                                    <div class="form-icon">
+                                                        <input class="btn" type="submit" value="Replay">
+                                                    </div>
+                                                    <div class="mt-10 info"></div>
+                                                </form>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                            <div class="comment-list">
+                                
+                                <div class="single-comment justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        
+                                        <div class="thumb">
+                                            <h5>
+                                            <a href="#">{{ comment.user}}</a>
+                                            
+                                            </h5> 
+                                        </div>
+                                    
+                                        <div class="desc">
+                                        
+                                            <h4 >
+                                            No Comments Yet For this Job!!
+                                            </h4>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                {% endif %}
+                        
+                        
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -160,20 +263,32 @@
                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Applicants</h1>
                 <div class="row g-4">
                     {% if job1  %} 
-                                    {% for jobprofile in jobprofile %}
+                            {% for job1 in job1 %}
                                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                                        <a class="cat-item rounded p-4" href="{{ job1.resume.url }}">
                                         
+                                        <a class="cat-item rounded p-4" href="{{ job1.resume.url}}" download>
+                                           
                                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                                            <h6 class="mb-3">{{jobprofile.name}}</h6>
-                                            <p class="mb-0">Resume here</p>
+                                            <h6 class="mb-3">{{job1.ref_profile}}</h6>
+                                            <p class="mb-0">click for resume</p>
                                         
                                            
                                         
-                                        </a>
+                                            {% if job1.is_accepted == False %}
+                                            <a class="btn btn-danger" href="{% url 'invite' job1.id %}">Send</a>
+                                            {% else %}
+                                          
+                                            <a class="btn btn-primary" href="{% url 'invite' job1.id %}">Confirmed</a>
+                                            {% endif %}
+                                        <button class="btn"><a href="{% url 'user_profile' job1.id %}">More</a></button>
                                     
+                                       
+                            
                                 </div>
                                 {% endfor %}
+
+                               
+                                
                     {% else %}
                                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                                         <a class="cat-item rounded p-4" href="">

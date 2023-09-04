@@ -45,13 +45,7 @@
     <!-- Hero Area Start-->
     <div class="container">
         <div class="row">
-            <div class="bg-body">
-                <div class="circle"></div>
-                <div class="circle2"></div>
-                <div class="circle1"></div>
-                
-
-            </div>
+         
             <div class="elem">
                 <h1 class="main-head">LOGIN HERE !!</h1>
             
@@ -88,14 +82,14 @@
                            <div>
                                <a href="#" class="login__forgot">Forgot Password?</a>
                                             {% for msg in messages %}
-                                                {% if msg == True %}
-                                                        <div class="alert alert-success" role="alert">
+                                                {% if msg.tags == 'success' %}
+                                                        <div class="alert alert-success">
                                                             <h4 class="alert-heading">Well done!</h4>
                                                             <p><span>{{msg}}</span></p>
 
                                                         </div>
                                                 {% else %}
-                                                        <div class="alert alert-danger" role="alert">
+                                                        <div class="alert alert-danger">
                                                             <h4 class="alert-heading">Sorry!</h4>
                                                             <p><span>{{msg}}</span></p>
 

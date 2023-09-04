@@ -1,3 +1,4 @@
+
 from django.db import models
 
 from django.contrib.auth.models import AbstractUser,BaseUserManager
@@ -37,6 +38,7 @@ class Company(User1):
     
     base_role=User1.Role.COMPANY
     user=UserManger()
+    
     class Meta:
         proxy=True
     def wel(self):

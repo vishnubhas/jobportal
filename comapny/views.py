@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from . models import *
 from  django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate,login,logout
 from  jo.models import *
 # Create your views here.
 @login_required(login_url='404_Error')
@@ -33,23 +34,7 @@ def create_job(request):
                             experience=request.POST.get('experience')
                             image=request.FILES.get('image')
                             Jobpost.objects.create(
-                                title=title,
-                                description=description,
-                                short_description =shortdes,
-                                job_field=field,
-                                location=location,
-                                salary = salary ,
-                                education_rqmnts=education,
-                                vacancies=vaccancy,
-                                job_type=type,
-                                experience=experience,
-                                image=image,
-                                user=request.user,
-                                
-                            
-
-
-
+                                title=title,description=description,short_description=shortdes,job_field=field,location=location,salary = salary,education_rqmnts=education,vacancies=vaccancy,job_type=type,experience=experience,image=image,user=request.user,
                             )
 
 
@@ -59,21 +44,88 @@ def create_job(request):
                 return render(request,'company/jobcreate.html')
         else:
                return redirect('company_404_Error')
-
-
-def job_details(request,id):
-    Job=Jobpost.objects.filter(id=id)
+@login_required(login_url='404_Error')
+def job_edit(request,id):
   
-    
+        if request.user.role=='COMPANY':
+              job_edit=Jobpost.objects.get(id=id)
 
-   
-    context={
-         'job':Job,
+              if request.method=='POST':
+                            title=request.POST.get('title')
+                            field=request.POST.get('field')
+                            location=request.POST.get('location')
+                            education=request.POST.get('education')
+                            salary=request.POST.get('salary')
+                            description=request.POST.get('description')
+                            shortdes=request.POST.get('shortdes')
+                            vaccancy=request.POST.get('vaccancy')
+                            type=request.POST.get('type')
+                            experience=request.POST.get('experience')
+                            image=request.FILES.get('image')
+                            job_edit.title=title
+                            job_edit.description=description
+                            job_edit.short_description=shortdes
+                            job_edit.job_field=field
+                            job_edit.location=location
+                            job_edit.salary =salary 
+                            job_edit.education_rqmnts=education
+                            job_edit.vacancies=vaccancy
+                            job_edit.job_type=type
+                            job_edit.experience=experience
+                            job_edit.image=image
+                            job_edit.save()
+                            return redirect('job_details')
+              context={
+                     'job':job_edit
+              }
+              return render(request,'company/job_edit.html',context)
+              
+
+
+        else:
+               return redirect('company_404_Error')
+@login_required(login_url='404_Error')  
+def job_delete(request,id):
+    if request.user.role=='COMPANY':
+          
+        delete=Jobpost.objects.filter(id=id)
+        delete.delete()
+        return redirect('com_index')
+    else:
+               return redirect('company_404_Error')
+@login_required(login_url='404_Error')  
+def job_details(request,id):
+    if request.user.role=='USER':
+        Job=Jobpost.objects.filter(id=id)
+        j=Jobpost.objects.filter(id=id).first()
+        
+
+        print(j)
+        userprofile=User2.objects.filter(id=request.user.id).first()
+        user=Userprofile.objects.filter(ref_user=request.user.id).first()
+        
+        # print(jobpost)
+        print(userprofile)
+        print(user)
+        if request.method == 'POST' :
+                   comment=request.POST.get('comment')
+                   Jobcomments.objects.create(ref_profile=user,user=userprofile,comment=comment,jobpost=j)
+        comment1=Jobcomments.objects.filter(jobpost=j)
+        print(comment1)
+        total=comment1.count()
         
         
-     }
-     
-    return render(request,'company/jobdetails.html',context)
+        context={
+            'job':Job,
+            'total':total,
+            'comment':comment1
+            
+            
+        }
+        
+        return render(request,'company/jobdetails.html',context)
+    else:
+                return redirect('user_404_Error')
 @login_required(login_url='404_Error')
 def com_index(request):  
     
@@ -100,10 +152,11 @@ def com_profile_create(request):
 
                 profile=Company.objects.filter(id=request.user.id).first()
                 user=Companyprofile.objects.filter( ref_profle=request.user.id)
+                print(user)
                 if user:
                     return redirect('com_index')
                 else :
-                    if profile:
+                    
                         if request.method=='POST':
                             companyname=request.POST.get('cname')
                             
@@ -144,9 +197,12 @@ def com_profile_create(request):
                                 pincode=pincode,
                                 ref_profle=request.user,
                               
-                                #  is_request = False
+                                 is_request = False
                             
                             ) 
+                            is_request1=Companyprofile.objects.filter(ref_profle=request.user.id , is_request=False)
+                            if is_request1:
+                                   return redirect('request_mes')
                         
                             return redirect('com_index')
 
@@ -154,6 +210,12 @@ def com_profile_create(request):
                 return render(request,"company/company_profile.html")
             else:
                return redirect('company_404_Error')
+@login_required(login_url='404_Error')
+def request_mes(request):
+       return render(request,'admin/request_mes.html')
+def approvel(request):
+    logout(request)
+    return redirect('login')
 
 def  company_profile_edit(request,id):
  
@@ -213,7 +275,8 @@ def Recentwork_add(request):
          
 
                 company=Company.objects.filter(id=request.user.id).first()
-                profile=Companyprofile.objects.filter(ref_profle=request.user.id)
+                profile=Companyprofile.objects.filter(ref_profle=request.user.id).first()
+    
                 print(profile)
              
                 if company :
@@ -245,7 +308,6 @@ def profileview(request):
                 
         profile=Companyprofile.objects.filter( ref_profle=request.user.id)
         work1=RecentWork.objects.filter(ref_company=request.user.id)
-    
         print(profile)
         context={
             'profile':profile,
@@ -259,8 +321,10 @@ def recent_post_detail(request):
     if request.user.role=='COMPANY':
                 
         data=RecentWork.objects.filter(ref_company=request.user.id)
+        all=RecentWork.objects.all()
         context={
-        'data1':data
+        'data1':data,
+        'all':all
         }
 
         return render(request,'company/recent_post_detail.html  ',context)
@@ -354,15 +418,84 @@ def job_confirm(request,id):
 @login_required(login_url='404_Error')  
 def job_view(request,id):
         if request.user.role=='COMPANY':
-              ref_profile=Userprofile.objects.filter(ref_job=id)
+              jobpost=Jobpost.objects.filter(id=id).first()
+              print(jobpost)
+              #creating replay sections
+              company=Jobcomments.objects.filter(id=id).first()
+              user=company.ref_profile
+              print(company)
+              company_profile=Companyprofile.objects.filter(ref_profle=request.user.id).first()
+              if request.method =="POST":
+                     replay=request.POST.get('replay')
+                     Replay.objects.create(jobcomments=company,user_profile=user,ref_profile=company_profile,replay=replay,job=jobpost)
+                     #ending of replay section
+              #getting repalys
+              repaly1=Replay.objects.filter(user_profile=user)
+              total_rpaly=repaly1.count()
+              print(repaly1)
+              comment1=Jobcomments.objects.filter(jobpost=jobpost)
+            #   print(comment1)
+              total=comment1.count()
+              user=JobApplication.objects.filter(ref_profile_id=id)
+            #   print(user)
+              jo=JobApplication.objects.filter(ref_job=jobpost)              
               job1=JobApplication.objects.filter(ref_job=id)
               job_list=Jobpost.objects.filter(id=id)
-              print(ref_profile)
+             
+              
+              print(jo)
               context={
                 'job':job_list,
                   'job1':job1,
-                  'joprofile':ref_profile
+                   'total':total,
+            'comment':comment1,
+            'repaly':repaly1,
+            "total_replay":total_rpaly,
+            'jo':jo
+
+                  
+                
+              
                 
             }
             
               return render(request,'company/job_view.html',context)
+        else:
+               return redirect('company_404_Error')
+@login_required(login_url='404_Error')
+def job_invite(request,id):
+       if request.user.role =='COMPANY':
+            cmp_obj=JobApplication.objects.get(id=id)
+            print(cmp_obj)
+            cmp_obj.is_accepted = not cmp_obj.is_accepted
+            cmp_obj.save()
+            return redirect('com_index')
+   
+@login_required(login_url='404_Error')  
+def user_profile_view(request,id):
+        if request.user.role=='COMPANY':
+            company=Company.objects.filter(id=request.user.id)
+            jo=JobApplication.objects.get(id=id).user
+            print(company)
+            user=Userprofile.objects.filter(ref_user=jo).first()
+            print(user)
+            work=Workexperiance.objects.filter(ref_user_id=jo).first()
+            education=Educations.objects.filter(ref_user_id=jo).first()
+            project=Projects.objects.filter(ref_user_id=jo).first()
+            certificate=Certificates.objects.filter(ref_user_id=jo).first()
+            itskill=ITskills.objects.filter(ref_user_id=jo).first()
+            print(itskill)
+            lang=Language.objects.filter(user_id=jo).first()
+            soft=Softskill.objects.filter(user_id=jo).first()
+            context={
+                    "user_data":user,
+                    "work":work,
+                    'education':education,
+                    'project':project,
+                   'certificate':certificate,
+                   'skill':itskill,
+                    'lang':lang,
+                    'soft':soft,
+                    'company':company
+            }
+            return render(request,'company/user_profile.html',context)

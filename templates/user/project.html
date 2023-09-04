@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="{% static 'css/education.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="container">
+          <form  method="post">
+            {% csrf_token %}
+                  <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+                    <h2 class="h5 mb-3 mb-lg-0"><a href="" class="text-muted"><i class="bi bi-arrow-left-square me-2"></i>Education Details</a></h2>
+                   
+                  </div>
+                
+                  <!-- Main content -->
+                  <div class="row">
+                    <!-- Left side -->
+                    <div class="col-lg-8">
+                      <!-- Basic information -->
+                      <div class="card mb-4">
+                        <div class="card-body">
+                          <h3 class="h6 mb-4">Add Projects</h3>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="mb-3">
+                                <label class="form-label">Project Name</label>
+                                <input type="text" class="form-control" name="project">
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="mb-3">
+                                <label class="form-label">Year</label>
+                                <input type="date" name="date" class="form-control">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="mb-3">
+                                <label class="form-label">Ending Year</label>
+                                <input type="date" name="edate" class="form-control">
+                              </div>
+                            </div>
+                            <div class="card mb-4 col-lg-12">
+                                <div class="card-body">
+                                  <h3 class="h6">Decriptions</h3>
+                                  <textarea class="form-control" rows="3" name="description"></textarea>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                       
+                      <div class="hstack gap-3">
+                        <input type="reset"  class="btn btn-light btn-sm btn-icon-text" value="cancel"><i class="bi bi-x" ></i> 
+                        <input type="submit" class="btn btn-primary btn-sm btn-icon-text" value="save"><i class="bi bi-save"></i>
+                      </div>
+                      
+                    </div>
+                    <!-- Right side -->
+                    
+                      <!-- Notes -->
+                      <!-- <div class="card mb-4">
+                        <div class="card-body">
+                          <h3 class="h6">Notes</h3>
+                          <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                      </div> -->
+                      <!-- Notification settings -->
+                      
+                  
+                  </div>
+           </form>
+        
+          </div>
+</body>
+</html>

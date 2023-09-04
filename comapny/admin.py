@@ -4,4 +4,5 @@ from.models import *
 admin.site.register(Jobpost),
 admin.site.register(Companyprofile)
 admin.site.register(Fields)
-admin.site.register(RecentWork)
+
+

@@ -106,6 +106,7 @@
                                
                             </div>
                         </div>
+                    
 
                     </div>
                     <!-- Right Content -->
@@ -144,6 +145,89 @@
                             
                        </div>
                        {% endfor %}
+                       <aside class="single_sidebar_widget search_widget">
+                        <form method="post" >
+                            {% csrf_token %}
+                            <div class="form-group">
+                               <h3>Comments.....</h3>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name='comment' >
+                                    <div class="input-group-append">
+                                        <input type="submit" value="post" class="btns">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </aside>
+                    <div class="comments-area">
+                        <h4><i class="fa fa-comments"></i>{{ total }} Comments</li></h4>
+                        {% if comment %}
+                                {% for comment in comment %}
+                                <div class="comment-list">
+                                
+                                <div class="single-comment justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        
+                                        <div class="thumb">
+                                            <h5>
+                                            <a href="#">{{ comment.user}}</a>
+                                            
+                                            </h5> 
+                                        </div>
+                                    
+                                        <div class="desc">
+                                        
+                                            <p class="comment">
+                                            {{ comment.comment}}
+                                            </p>
+                                            <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                
+                                                <p class="date">{{ comment.date }} </p>
+                                            </div>
+                                            
+                                            <div class="reply-btn">
+                                                <a href="#" class="btn-reply text-uppercase">reply</a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                            <div class="comment-list">
+                                
+                                <div class="single-comment justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        
+                                        <div class="thumb">
+                                            <h5>
+                                            <a href="#">{{ comment.user}}</a>
+                                            
+                                            </h5> 
+                                        </div>
+                                    
+                                        <div class="desc">
+                                        
+                                            <h4 >
+                                            No Comments Yet For this Job!!
+                                            </h4>
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                {% endif %}
+                        
+                        
+                        </div><div class="comments-area">
+
+
+</div>
                     </div>
                 </div>
             </div>

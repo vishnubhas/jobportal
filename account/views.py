@@ -4,6 +4,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from adminapp.models import Admin_view
 from comapny.models import *
+from  jo.models import *
 # Create your views here.
 def company_register(request):
     if request.method=='POST':
@@ -19,7 +20,8 @@ def company_register(request):
                 username=username,
                 first_name=first_name,
                 email=email,
-                password=password
+                password=password,
+                
                 
         )
                 
@@ -65,17 +67,20 @@ def login_view(request):
         username=request.POST.get("username")
         password=request.POST.get("password")
         log=authenticate(request,username=username,password=password)
-        
         if log is not None:
             login(request,log)
             if request.user.role=="COMPANY":
-                
-                  
-             
-                return redirect('com_profile_create')
-                     
+                    is_request1=Companyprofile.objects.filter(ref_profle=request.user.id , is_request=False)
+                    print(is_request1)
+                    if is_request1  :
+                        messages.success(request,'register is completed and wait for admin approvel')
+                        return redirect('login')
+                    
+                    else:
+               
+                        return redirect('com_profile_create')
             elif request.user.role=="USER":
-                return redirect('logging_profile')
+                return redirect('profile')
             elif request.user.role=="ADMIN":
                 return redirect('admin')
             
@@ -85,10 +90,27 @@ def login_view(request):
     return render(request,'account/login.html')
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    return redirect('login')
 def forgot_password(request):
     
     return render('account/forgot.html')
+
+    
 def alert(request):
     return render(request,'account/alert.html')
 
+def page_not(request, exception):
+    return render(request,'account/404_pagenot.html')
+
+def error_500(request):
+    userprofile=Userprofile.objects.filter( ref_user=request.user.id).first()
+    user=Companyprofile.objects.filter( ref_profle=request.user.id)
+    print(userprofile)
+    print(user)
+    context={
+        'userprofile':userprofile,
+        "user":user
+    }
+    return render(request,'account/500_error.html',context)
+# def error_403(request,exception):
+#     return render(request,'account/error_403.html')

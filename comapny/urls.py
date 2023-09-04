@@ -4,7 +4,9 @@ from django.urls import path
 
 urlpatterns = [
     path('create_job/',create_job,name='jobcreate'),
-     
+    path('job/<int:id>/edit/',job_edit,name='job_edit'),
+    path('job/<int:id>/delete/',job_delete,name='job_delete'),
+
      path('job_details/<int:id>/',job_details,name='job_details'),
      path('c_index/',com_index,name='com_index'),
      path('c_profile/',com_profile_create,name='com_profile_create'),
@@ -20,6 +22,12 @@ urlpatterns = [
      path('company_profile/<int:id>/edit/',company_profile_edit,name='profile_edit2'),
     #  path('job/<int:id>/applicant/',job_confirm,name="job_confirm"),
       path('job/<int:id>/applicant/',job_view,name="job_view"),
+    
+    path('request/mes/',request_mes,name='request_mes'),
+    path('go/back',approvel,name='approvel'),
+    path('user/<int:id>/profile/',user_profile_view,name='user_profile'),
+    path("job/<int:id>/invitation/",job_invite,name='invite')
+    
       
 
 

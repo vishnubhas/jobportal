@@ -1,0 +1,68 @@
+{% load static %}
+
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Well done!! </title>
+  <link rel="stylesheet" href="{% static 'css/request.css' %}">
+  <style>
+    #pink{
+        color: rgb(2, 49, 0);
+        font-size: 20px;
+        
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+    }
+    a :hover{
+        color: rgb(168, 0, 28);
+    }
+  </style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="panda">
+  <div class="ear"></div>
+  <div class="face">
+    <div class="eye-shade"></div>
+    <div class="eye-white">
+      <div class="eye-ball"></div>
+    </div>
+    <div class="eye-shade rgt"></div>
+    <div class="eye-white rgt">
+      <div class="eye-ball"></div>
+    </div>
+    <div class="nose"></div>
+    <div class="mouth"></div>
+  </div>
+  <div class="body"> </div>
+  <div class="foot">
+    <div class="finger"></div>
+  </div>
+  <div class="foot rgt">
+    <div class="finger"></div>
+  </div>
+</div>
+<form>
+  <div class="hand"></div>
+  <div class="hand rgt"></div>
+  <h1>Well Done!!</h1>
+  <p id="pink">All Set!!You Ready to go!! <br>Now Wait for the Admin Approvell</p>
+  <button class="btn"><a href="{% url 'approvel' %}">Go Back</a></button>
+ 
+</form>
+<!-- partial -->
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="{% static 'js/request.js' %}"></script>
+
+</body>
+</html>
+<!-- partial -->
+  <!-- <script  src="./script.js"></script>
+
+</body>
+</html> -->

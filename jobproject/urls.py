@@ -18,11 +18,17 @@ from django.contrib import admin
 from django.urls import path,include
 from django .conf .urls.static import static
 from django .conf import settings 
+from django.conf.urls import handler404 ,handler500,handler403
+# from account . views  import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('dj-admin/', admin.site.urls),
     path('',include('jo.urls')),
     path('',include('account.urls')),
     path('',include('comapny.urls')),
     path('',include('adminapp.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+handler404='account.views.page_not'
+handler500='account.views.error_500'
+# handler403='account.views.error_403'
