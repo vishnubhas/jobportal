@@ -1,6 +1,6 @@
-{% extends 'head.html'%}
+
 {% load static %}
-{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,9 +143,9 @@ color: #bcd0f7;
                             <div class="card-body">
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 class="mb-3 text-primary">Company Details</h6>
+                                        <h2 class="mb-3 text-primary">Fill This Form</h2>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="fullName">Company Name</label>
                                             <input type="text" name="cname" class="form-control" id="fullName" placeholder="Enter companyname">
@@ -164,13 +164,7 @@ color: #bcd0f7;
                                            <input type="text" name="established" class="form-control" placeholder="established">
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <select class="form-select form-group"  name="field" aria-label="Default select example">
-                                            <option selected>Field</option>
-                                            <option class=" form-group" value="1">One</option>
-                                        
-                                          </select>
-                                    </div>
+                                  
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="eMail">Email</label>
@@ -245,30 +239,7 @@ color: #bcd0f7;
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row gutters">
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 class="mb-3 text-primary">Our Works</h6>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label >Work</label>
-                                            <input type="text" name="wwork" class="form-control"  placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="image">photo</label>
-                                          <input type="file" name="wphoto" accept="image/*" class="form-control"  >
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label >About Work</label>
-                                            <textarea  class="form-control" name="wabout" placeholder="Decrip your work here!!" ></textarea>
-                                        </div>
-                                    </div>
-                                  
-                                </div>
+                               
                                 
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -276,8 +247,8 @@ color: #bcd0f7;
                                         <div class="text-right">
                                             <button type="reset" id="submit" name="reset" class="btn btn-secondary">Cancel</button>
                                             <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
-                                          
-                                            <button  name="submit" class="btn btn-primary"><a href="{%url 'view' %}"> profile</a></button>
+                                            <button type="reset" id="submit" name="reset" class="btn btn-secondary"><a href="{% url 'skip'   %}">Skip</a></button>
+                                        
                                            
                                             
                                         </div>
@@ -330,4 +301,3 @@ color: #bcd0f7;
 
 </body>
 </html>
-{% endblock content %}

@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from adminapp.models import Admin_view
+from comapny.models import *
 # Create your views here.
 def company_register(request):
     if request.method=='POST':
@@ -64,18 +65,17 @@ def login_view(request):
         username=request.POST.get("username")
         password=request.POST.get("password")
         log=authenticate(request,username=username,password=password)
+        
         if log is not None:
             login(request,log)
             if request.user.role=="COMPANY":
-                approvel=Admin_view.objects.filter(approvel=False)
-                if  approvel:
-                    
-                    return redirect('login')
-                else:
-                    messages.success(request,"wait for the approvel!")
-                    return redirect('com_index')
+                
+                  
+             
+                return redirect('com_profile_create')
+                     
             elif request.user.role=="USER":
-                return redirect('user_index')
+                return redirect('logging_profile')
             elif request.user.role=="ADMIN":
                 return redirect('admin')
             
@@ -85,8 +85,10 @@ def login_view(request):
     return render(request,'account/login.html')
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 def forgot_password(request):
     
     return render('account/forgot.html')
+def alert(request):
+    return render(request,'account/alert.html')
 

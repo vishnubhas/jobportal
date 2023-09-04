@@ -41,9 +41,14 @@
                                 
                                 <div class="job-tittle">
                                     <a href="#">
-                                        <h4>{{job.jobname}}</h4>
+                                        <h4>{{job.title }}</h4>
                                     </a>
-                                    
+                                  
+                                </div>
+                                <div>
+                                    {% if  job.image %}
+                                    <img  style="width: 80%;" src="{{  job.image.url }}" alt="">
+                                    {%  endif  %}
                                 </div>
                             </div>
                         </div>
@@ -57,16 +62,7 @@
                                 </div>
                                 <p>{{job.description}}</p>
                             </div>
-                            <div class="post-details2  mb-50">
-                                 <!-- Small Section Tittle -->
-                                <div class="small-section-tittle">
-                                    <h4>Required Knowledge, Skills, and Abilities</h4>
-                                </div>
-                                <ul>
-                                    <li>{{job.requiredskill}}</li>
-                                </ul>
-                               
-                            </div>
+                            
                             <div class="post-details2  mb-50">
                                  <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
@@ -74,7 +70,7 @@
                                 </div>
                                <ul>
                                  
-                                   <li>{{job.qualification}}</li>
+                                   <li>{{job.education_rqmnts}}</li>
                                    
                                </ul>
                             </div>
@@ -84,11 +80,31 @@
                                    <h4>Experiance </h4>
                                </div>
                               <ul>
-                                  <li>{{job.experiances}}</li>
+                                  <li>{{job.experience}}</li>
                                  
                                   
                               </ul>
                            </div>
+                           <div class="post-details2  mb-50">
+                                 
+                            <div class="small-section-tittle">
+                                <h4>JOB TYPE</h4>
+                            </div>
+                            <ul>
+                                <li>{{job.job_type}}</li>
+                            </ul>
+                           
+                            </div>
+                            <div class="post-details2  mb-50">
+                                 
+                                <div class="small-section-tittle">
+                                    <h4>Salary </h4>
+                                </div>
+                                <ul>
+                                    <li>${{job.salary}}</li>
+                                </ul>
+                               
+                            </div>
                         </div>
 
                     </div>
@@ -102,30 +118,28 @@
                           <ul>
                               <li>Posted date : <span>{{job.created}}</span></li>
                               
-                              <li>Vacancy : <span>{{job.vaccancy}}</span></li>
+                              <li>Vacancy : <span>{{job.vacancies}}</span></li>
                               
                               
                               <li>Application date : <span>{{job.update}}</span></li>
                           </ul>
                          <div class="apply-btn2">
-                            <a href="{% url 'upload_cv' %}" class="btn">Upload and Apply </a>
+                            <a href="{% url 'jobapply' job.id %}" class="btn"> Apply </a>
                          </div>
                        </div>
-                       {% endfor %}
                        
-                       {% for company in job %}
+                       
+                    
                         <div class="post-details4  mb-50">
                             
                             <!-- Small Section Tittle -->
                            <div class="small-section-tittle">
-                               <h4>Company Information</h4>
+                               <h4>Company</h4>
                            </div>
-                              <span>{{company.quotes }}</span>
-                              <p>{{company.descriptions}}</p>
+                            
                             <ul>
-                                <li>Name: <span>{{company.companynames }} </span></li>
-                                <li>Web : <span>{{company.websites }}</span></li>
-                                <li>Email: <span>{{company.emails}}</span></li>
+                                <li>Name: <a href="{% url 'com'  job.id %}"><span>{{ job.user }} </span></a></li>
+                               
                             </ul>
                             
                        </div>

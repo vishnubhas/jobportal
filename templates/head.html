@@ -73,9 +73,9 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-2">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="theme-toggle">
+                                <input class="form-check-input text-info" type="checkbox" role="switch" id="theme-toggle">
                                
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Switch Theme</label>
+                                <label class="form-check-label text-info" for="flexSwitchCheckDefault">Dark</label>
                              
 
                               </div>
@@ -96,30 +96,39 @@
                                             
                                             
                                             {% if request.user.role == 'COMPANY' %}
-                                                <!-- {% if request.user.approvel %} -->
+                                                
                                             
                                                     <li><a href="{% url 'com_index' %}">Home</a></li>
-                                                    <li><a href="#">About</a></li>
+                                                    <li><a href="{% url 'com_about' %}">About</a></li>
                                                     <li><a href="{% url 'view' %}">Company profile</a></li>
-                                                <!-- {% endif %} -->
+                                                    <li><a href="#">Notification</a>
+                                                        <ul class="submenu">
+                                                            <li><a href="">Applicant</a></li>
+                                                            
+                                                        </ul>
+                                                    </li>
+                                                
                                             {% elif request.user.role == 'USER' %}
                                             <li><a href="{% url 'user_index' %}">Home</a></li>
                                             <li><a href="#">About</a></li>
-                                            <li><a href="{% url 'profile' %}">User profile</a></li>
+                                            <li><a href="{% url 'personal' %}">User profile</a></li>
                                             {% elif request.user.role == 'ADMIN' %}
                                             
                                             <li><a href="#">Home</a></li>
                                             <li><a href="#">About</a></li>
                                             <li><a href="{% url 'company_view' %}">Company profile</a></li>
                                             <li><a href="#">User Details</a></li>
+                                          
+
                                             {% endif %}
+
                                         </ul>
                                     </nav>  
                                 </div>
                               
                                 <div class="media-object-container ml-auto">
                                     <div class="media m0 pv">
-                                        <div class="media-left"><a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User" class="media-object img-circle thumb"></a></div>
+                                        <div class="media-left"><a href="{% url 'personal' %}"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User" class="media-object img-circle thumb"></a></div>
                                         <div class="media-body media-middle">
                                             <h4 class="media-heading text-secondary">{% if request.user.role %}
                                                 <span><h6>{{ request.user.username }}</h6></span>

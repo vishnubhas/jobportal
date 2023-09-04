@@ -45,68 +45,48 @@
                                 <div class="hero-cap text-center shadow">
                                     <h2>Post Job</h2>
                                 </div>
-                                <form class="form-contact contact_form" method="post"  >
+                                <form class="form-contact contact_form"  enctype="multipart/form-data" method="post"  >
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input class="form-control valid text-light" name="companyname"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your companyname'" placeholder="Companyname">
+                                                <input class="form-control valid text-light" name="title"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter job title'" placeholder=" Job Title">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input class="form-control valid text-light" name="jobname"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Job'" placeholder="Enter Job">
+                                                <input class="form-control valid text-light" name="field"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Job'" placeholder="Enter field">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input class="form-control valid text-light" name="skill"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required Skills'" placeholder="Required Skills">
+                                                <input class="form-control valid text-light" name="location"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required Skills'" placeholder="Location">
                                             </div>
                                         </div>                                        
-                                        
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control valid text-light" name="education"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required Skills'" placeholder="Education">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control valid text-light" name="experience"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required Skills'" placeholder="Experience">
+                                            </div>
+                                        </div>      
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input class="form-control valid text-light" name="image"   accept="image/*" type="file" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required Skills'" placeholder="Experience">
+                                            </div>
+                                        </div>     
                                         
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                 
-                                                                                                     
-                                                    
-                                                            <select class="dropdown">
-                                                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                    qualificaton
-                                                                </a>
-                                                               
-                                                                
-                                                                    {% for education in edu %}
-                                                                
-                                                                    <option class="dropdown-item" value="{{education.0}}">{{education.1}}</option>
-                                                                    {% endfor %}
-                                                               
-                                                                
-                                                            </div>
-                                
+                                                <input class="form-control valid text-light" name="salary"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required Skills'" placeholder="salary">
                                             </div>
-                                        </div>
+                                        </div>     
         
                                        
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                
-                                                <div class="dropdown">
-                                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        experiance
-                                                    </a>
-                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        {% for expr in exp %}
-                                                    
-                                                        <li class="dropdown-item" value="{{expr.0}}">{{expr.1}}</a></li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                    
-                                                </div>
-                    
-                                            </div>
-
-                                        </div>
+                                       
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <textarea name="description" cols="30" rows="10"  class="form-control valid text-light"  placeholder="Description"></textarea>
@@ -123,6 +103,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <input class="form-control valid text-light" name="vaccancy"  type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'vaccancy'" placeholder="Vaccancy">
+                                             </div>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input class="form-control valid text-light" name="type"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'vaccancy'" placeholder="Job Type">
                                              </div>
                                             
                                         </div>

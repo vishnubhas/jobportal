@@ -1,4 +1,7 @@
 from django.contrib import admin
-from . models import Userprofile
-admin.site.register(Userprofile),
+from . models import *
+admin.site.register(Userprofile)
+
+admin.site.register(Gender)
+admin.site.register(JobApplication)
 

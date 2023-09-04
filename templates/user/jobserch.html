@@ -31,9 +31,9 @@
                 </div>
                
                 {% if serach %}
-                
+               
                     <div class="row">
-                    
+                        {% for serach in serach %}
                         <div class="col-lg-4 col-md-6">
                             <div class="single-process text-center mb-30">
                                 <div class="process-ion">
@@ -42,22 +42,23 @@
                                 <div class="process-cap">
                                
                                                    
-                                   {% for serach in serach %}
-                                   <h4><a href="{% url 'job_details' serach.id %}">{{serach.jobname }}</a></h4>
+                                   
+                                   <h4><a href="{% url 'job_details' serach.id %}">{{serach.title }}</a></h4>
                                    <h6 class="text-white">{{serach.companyname }}</h6>
-                                   {% endfor %}
+                                   
 
                                 </div>
                             </div>
                         </div>
-                      
+                        {% endfor %}
                     </div>
+                    
                 {% else %}
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle white-text text-center">
                           
-                            <h2> This job not posted yet !! </h2>
+                            <h2>  job are not available yet !! </h2>
                         </div>
                     </div>
                 </div>

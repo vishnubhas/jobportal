@@ -1,6 +1,7 @@
-{%extends 'head.html' %}
+
+
 {% load static %}
-{% block content %}
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -27,6 +28,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <style>
         .len{
             margin-left: 25%;
@@ -40,62 +43,70 @@
    
     
     <!-- Hero Area Start-->
-    <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{%static 'img/hero/about.jpg' %}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <div class="form-group">
-                                <div class="hero-cap text-center shadow">
-                                    <h2>Login</h2>
-                                </div>
-                                <form class="form-contact contact_form" method="post"  >
-                                    {% csrf_token %}
-                                   
-                                        <div class="col-sm-6 len ">
-                                            <div class="form-group">
-                                                <input class="form-control valid text-light" name="username"  type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Firstname'" placeholder="Enter your First name">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 len">
-                                            <div class="form-group">
-                                                <input class="form-control valid text-light " name="password"  type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Firstname'" placeholder="password">
-                                            </div>
-                                        </div>
-                                              
-                                        
-                                        
+    <div class="container">
+        <div class="row">
+            <div class="bg-body">
+                <div class="circle"></div>
+                <div class="circle2"></div>
+                <div class="circle1"></div>
+                
+
+            </div>
+            <div class="elem">
+                <h1 class="main-head">LOGIN HERE !!</h1>
+            
+                
+	                        <form action="" class="form-login" method="post">
+
+                                {% csrf_token %}
+                                <ul class="login-nav">
+                                    <li class="login-nav__item active">
+                                        <a href="#">LOGIN</a>
+                                    </li>
+                                    <li class="login-nav__item">
+                                        <a href="{% url 'alert' %}">Register here</a>
+                                    </li>
+                                </ul>
+                             
+                                            <label for="login-input-user" class="login__label">
+                                                Username
+                                            </label>
+                                            <input id="login-input-user" class="login__input" type="text"  name="username"/>
+                                            <label for="login-input-password" class="login__label">
+                                                Password
+                                            </label>
+                                            <input id="login-input-password" class="login__input" type="password"  name="password"/>
+                                            <label for="login-sign-up" class="login__label--checkbox">
+                                                <input id="login-sign-up" type="checkbox" class="login__input--checkbox" />
+                                                Keep me Signed in
+                                            </label>
+                                            <input type="submit"  class="login__submit" value="Sign in">
                                       
                                     
-                                    <div class="form-group mt-3">
-                                        <button type="submit" class="button button-contactForm boxed-btn">Sign in</button>
-                                    </div>
-                                    
+                                          
+	                        </form>
+                           <div>
+                               <a href="#" class="login__forgot">Forgot Password?</a>
+                                            {% for msg in messages %}
+                                                {% if msg == True %}
+                                                        <div class="alert alert-success" role="alert">
+                                                            <h4 class="alert-heading">Well done!</h4>
+                                                            <p><span>{{msg}}</span></p>
 
-                                </form>
-                                {% for msg in messages %}
-                                    {% if msg == True %}
-                                        <div class="alert alert-success" role="alert">
-                                            <h4 class="alert-heading">Well done!</h4>
-                                            <p><span>{{msg}}</span></p>
-                                  
-                                        </div>
-                                    {% else %}
-                                        <div class="alert alert-danger" role="alert">
-                                            <h4 class="alert-heading">Sorry!</h4>
-                                            <p><span>{{msg}}</span></p>
-                                
-                                        </div>
-                                        
-                                    {% endif %}
-                               
-                               {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                                        </div>
+                                                {% else %}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            <h4 class="alert-heading">Sorry!</h4>
+                                                            <p><span>{{msg}}</span></p>
+
+                                                            </div>
+    
+                                                {% endif %}
+
+                                             {% endfor %}
             </div>
+
+            
         </div>
     </div>
     <!-- Hero Area End -->
@@ -142,4 +153,3 @@
 
 </body>
 </html>
-{% endblock content%}

@@ -109,6 +109,56 @@
        
        {% endfor %}
         <!-- slider Area End-->
+     
+        <section class="featured-job-area feature-padding">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>Recent Job</span>
+                            <h2>Featured Jobs</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <!-- single-job-content -->
+                        {% for job in job %}
+                        <div class="single-job-items mb-30">
+                            <div class="job-items">
+                                <div class="company-img">
+                                    <a href="">
+                                        {% if  job.image %}
+                                        <img src="{{  job.image.url }}" alt="" style="width: 80px; height: 80px; ">
+                                        {%  endif  %}
+                                </div>
+                                <div class="job-tittle">
+                                    <a href="{% url 'job_view' job.id %}"><h4>{{  job.title }}</h4></a>
+                                    <ul>
+                                        <li>Creative Agency</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>{{  job.location }}</li>
+                                        <li>${{  job.salary }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="items-link f-right">
+                                <a href="job_details.html">{{  job.job_type }}</a>
+                                <h5>field :</h5>
+                                <span>{{  job.job_field }}</span>
+                            </div>
+                        </div>
+                        {% endfor  %}
+                       
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured_job_end -->
+
+       
         
     <footer>
         <!-- Footer Start-->

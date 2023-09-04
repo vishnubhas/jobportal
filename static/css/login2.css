@@ -1,0 +1,93 @@
+.bg-body {
+
+    filter: blur(8px);
+    width: 100%;
+    height: 100%;
+}
+.circle{
+
+    background-image: linear-gradient(to right,  rgba(255, 255, 255, 0.89),rgb(255, 5, 122) , rgba(0, 26, 255, 0.603));
+    width: 100%; 
+    height: 200px;
+    filter: blur(100px);
+    animation-name: change-color;
+    animation-duration: 30s;
+    animation-delay: 0s;
+    
+
+}
+@keyframes change-color{
+    /* 0%{ transition: 0.1s;background-image: linear-gradient(to right, rgb(255, 255, 255),rgba(255, 5, 122, 0.719) , rgba(0, 26, 255, 0.603));} */
+    20%{ transition: 0.1s;background-image: linear-gradient(to right,rgb(255, 255, 255), rgba(0, 26, 255, 0.589), rgb(255, 5, 122));}
+    30%{ transition: 0.1s;background-image: linear-gradient(to right, rgba(0, 26, 255, 0.589),  rgb(255, 5, 122), rgb(255, 255, 255));}
+    100%{ transition: 0.1s;background-image: linear-gradient(to right, rgb(255, 255, 255),rgba(255, 5, 122, 0.719) , rgba(0, 26, 255, 0.603));}
+
+}   
+.circle1{
+
+    background-image: linear-gradient(to right, rgba(7, 216, 253, 0.856) , rgba(85, 253, 7, 0.856), rgba(253, 253, 253, 0.856));
+    width: 100%; 
+    height: 30vh;
+    filter: blur(80px);
+    position: relative;
+    top: 100%;
+   animation-name: change-color2;
+   animation-duration: 30s;
+   animation-delay: 2s;
+}
+@keyframes change-color2{
+    /* 0%{ transition: 0.1s;background-image: linear-gradient(to right, rgba(7, 216, 253, 0.856),rgb(255, 255, 255) ,rgba(85, 253, 7, 0.856));} */
+    45%{ transition: 0.1s;background-image: linear-gradient(to right,rgb(255, 255, 255), rgba(7, 216, 253, 0.856), rgba(85, 253, 7, 0.856));}
+    65%{ transition: 0.1s;background-image: linear-gradient(to right,rgba(85, 253, 7, 0.856), rgba(255, 255, 255, 0.856),rgba(7, 216, 253, 0.856));}
+}
+.circle2{
+
+    background-image: linear-gradient(to right, rgb(253, 249, 4) , rgba(255, 255, 255, 0.89), rgb(252, 14, 14));
+    width: 100%; 
+    height: 30vh;
+    filter: blur(100px);
+    position: relative;
+    top: 100%;
+    animation-name: change-color3;
+   animation-duration: 30s;
+   animation-delay: 1.5s;
+}
+@keyframes change-color3{
+    /* 0%{ transition: 0.1s;background-image: linear-gradient(to right,  rgb(253, 249, 4) , rgba(255, 255, 255, 0.89), rgb(252, 14, 14));} */
+    80%{ transition: 0.1s;background-image: linear-gradient(to right,rgb(255, 255, 255), rgb(252, 14, 14), rgb(253, 249, 4));}
+    95%{ transition: 0.1s;background-image: linear-gradient(to right,rgb(252, 14, 14), rgb(253, 249, 4),rgba(255, 255, 255, 0.856));}
+}
+.elem{
+    
+    position: absolute;
+    top: 10%;
+    left: 33%;
+ 
+}
+.elem h1{
+    text-transform: uppercase;
+    font-size: 60px;
+    filter: blur(.6px);
+    color: rgb(9, 9, 66);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+ margin: 10px;
+}
+.drop{
+    width: 10px;
+    height: 10px;
+    background:transparent;
+    position: absolute;
+    top: 1px;
+    left: 130px;
+    filter: blur(.6px);
+    border-radius: 0% 100% 100%;
+
+}
+.img-ro{
+  border-radius: 100%;
+
+}
+
+

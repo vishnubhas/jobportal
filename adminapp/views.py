@@ -4,7 +4,7 @@ from jo.models import Userprofile,User2
 # Create your views here.
 def admin_view(request):
     return render (request,'admin/admin.html')
-def company_view(request):
+def company_view(request,id):
     
     company=Company.objects.filter()
     context={

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Register </title>
+  <link rel="stylesheet"href="{% static 'css/alert.css' %}">
+
+
+<!-- partial:index.partial.html -->
+<body> <div class="circle"></div>
+    <div class="circle2"></div>
+   
+    <div class="container">
+        <div class="cube"></div>
+        <!-- <div class="circle"></div> -->
+
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <!-- <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true"> -->
+                    <h3>Register <br> as  a</h3>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <a href="{% url 'company_register' %}">COMPANY</a>
+                    <P>or</P>
+                    <span>
+                    
+                        <a href="{% url 'user_register' %}">NORMAL <br>USER</a>
+                    </span>
+                   
+                </div>
+            </div>
+        </div>
+      
+    </div>
+
+  
+</body>
+</html>

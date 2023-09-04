@@ -1,6 +1,6 @@
-{% extends 'head.html'%}
+
 {% load static %}
-{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <link rel="stylesheet" href="{% static 'button.css' %}">
-<style>
+   <style>
     body{margin-top:20px;
     color: #bcd0f7;
         background: #3e6de2;
@@ -131,7 +131,7 @@ color: #bcd0f7;
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                    {% for i in all %}
+                    {% for i in userprofile %}
                     <div class="card h-100 b">
                         <div class="card-body">
                             <div class="account-settings">
@@ -155,7 +155,7 @@ color: #bcd0f7;
                                     <ul>
                                         <li><h6 class="text-white">{{i.git}}</h6></li>
                                         <li><h6 class="text-white">{{i.youtube}}</h6></li>
-                                        <li><h6 class="text-white">{{i.linkedin}}</h6></li>
+                                        <!-- <li><h6 class="text-white">{{i.linkedlinkedin -->
                                     </ul>
                                     
                                 </div>
@@ -234,12 +234,20 @@ color: #bcd0f7;
                                             <input type="url" class="form-control" id="website" placeholder="website" name="website">
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="website">LinkedIn</label>
                                             <input type="url" class="form-control" id="website" name="linkedin" placeholder="linkedin">
                                         </div>
+                                    </div> -->
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="website">Gender</label>                                                                          
+                                                <input type="text" name="gender" class="form-control" placeholder="gender">                                                                                          
+                                        </div>
                                     </div>
+                                    
+                                    
                                 </div>
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -321,7 +329,6 @@ color: #bcd0f7;
     <!-- Jquery Plugins, main Jquery -->	
     <script src="{% static 'js/plugins.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
+   
 </body>
 </html>
-{% endblock content %}

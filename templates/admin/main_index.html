@@ -11,6 +11,20 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,8 +61,8 @@
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">"Connecting job seekers with their dream jobs and helping employers find their ideal candidates - a job portal is the bridge between career aspirations and professional opportunities."</p>
+                                    <a href="{% url 'search' %}" class="btn btn-secondary  py-md-3 px-md-5 me-3 animated slideInUp">Find a Job <br> That Fit You</a>
                                     <a href="{% url 'login' %}" class="btn btn-secondary  py-md-3 px-md-5 me-3 animated slideInUp">Login</a>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -63,6 +77,8 @@
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">"Connecting job seekers with their dream jobs and helping employers find their ideal candidates - a job portal is the bridge between career aspirations and professional opportunities."</p>
                                     <a href="{% url 'login' %}" class="btn btn-secondary  py-md-3 px-md-5 me-3 animated slideInUp">Login</a>
+                                    <a href="{% url 'search' %}" class="btn btn-secondary  py-md-3 px-md-5 me-3 animated slideInUp">Find Top <br> most Companies</a>
+                                   
                                 </div>
                                 
                             </div>
@@ -72,7 +88,229 @@
             </div>
         </div>
         <!-- Carousel End -->
+ <!-- How  Apply Process Start-->
+ <div class="apply-process-area apply-bg pt-150 pb-150" data-background="{% static 'img/gallery/how-applybg.png' %}">
+    <div class="container">
+        <!-- Section Tittle -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-tittle white-text text-center">
+                    <span>Apply process</span>
+                    <h2> How it works</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Apply Process Caption -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-process text-center mb-30">
+                    <div class="process-ion">
+                        <span class="flaticon-search"></span>
+                    </div>
+                    <div class="process-cap">
+                       <h5>1. Search a job</h5>
+                       <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-process text-center mb-30">
+                    <div class="process-ion">
+                        <span class="flaticon-curriculum-vitae"></span>
+                    </div>
+                    <div class="process-cap">
+                       <h5>2. Apply for job</h5>
+                       <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-process text-center mb-30">
+                    <div class="process-ion">
+                        <span class="flaticon-tour"></span>
+                    </div>
+                    <div class="process-cap">
+                       <h5>3. Get your job</h5>
+                       <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+<!-- How  Apply Process End-->
+<!-- Testimonial Start -->
+<div class="testimonial-area testimonial-padding">
+    <div class="container">
+        <!-- Testimonial contents -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-8 col-lg-8 col-md-10">
+                <div class="h1-testimonial-active dot-style">
+                    <!-- Single Testimonial -->
+                    <div class="single-testimonial text-center">
+                        <!-- Testimonial Content -->
+                        <div class="testimonial-caption ">
+                            <!-- founder -->
+                            <div class="testimonial-founder  ">
+                                <div class="founder-img mb-30">
+                                    <img style="border-radius: 100%;" src="{% static 'img/testmonial/vishnu.png' %}" alt="">
+                                    <span>Vishnu</span>
+                                    <p>CEO/Founder/Creative Director</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-top-cap">
+                                <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Testimonial -->
+                    <div class="single-testimonial text-center">
+                        <!-- Testimonial Content -->
+                        <div class="testimonial-caption ">
+                            <!-- founder -->
+                            <div class="testimonial-founder  ">
+                                <div class="founder-img mb-30">
+                                    <img style="border-radius: 100%; height: 30vh;"  src="{% static 'img/testmonial/co-founder.jpeg' %}" alt="">
+                                    <span>Margaret</span>
+                                    <p>Creative Associate/co-founder</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-top-cap">
+                                <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Testimonial End -->
+<div class="footer-area footer-bg footer-padding">
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+               <div class="single-footer-caption mb-50">
+                 <div class="single-footer-caption mb-30">
+                     <div class="footer-tittle">
+                         <h4>About Us</h4>
+                         <div class="footer-pera">
+                             <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                        </div>
+                     </div>
+                 </div>
+
+               </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                <div class="single-footer-caption mb-50">
+                    <div class="footer-tittle">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li>
+                            <p>Address :Your address goes
+                                here, your demo address.</p>
+                            </li>
+                            <li><a href="#">Phone : +8880 44338899</a></li>
+                            <li><a href="#">Email : info@colorlib.com</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                <div class="single-footer-caption mb-50">
+                    <div class="footer-tittle">
+                        <h4>Important Link</h4>
+                        <ul>
+                            <li><a href="#"> View Project</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Testimonial</a></li>
+                            <li><a href="#">Proparties</a></li>
+                            <li><a href="#">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                <div class="single-footer-caption mb-50">
+                    <div class="footer-tittle">
+                        <h4>Newsletter</h4>
+                        <div class="footer-pera footer-pera2">
+                         <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                     </div>
+                     <!-- Form -->
+                     <div class="footer-form" >
+                         <div id="mc_embed_signup">
+                             <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                             method="get" class="subscribe_form relative mail_part">
+                                 <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                 class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                 onblur="this.placeholder = ' Email Address '">
+                                 <div class="form-icon">
+                                     <button type="submit" name="submit" id="newsletter-submit"
+                                     class="email_icon newsletter-submit button-contactForm"><img src="{% static 'img/icon/form.png' %}" alt=""></button>
+                                 </div>
+                                 <div class="mt-10 info"></div>
+                             </form>
+                         </div>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!--  -->
+       <div class="row footer-wejed justify-content-between">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <!-- logo -->
+                <div class="footer-logo mb-20">
+                <a href="index.html"><img src="{% static 'img/logo/logo3.png' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+            <div class="footer-tittle-bottom">
+                <span>5000+</span>
+                <p>Talented Hunter</p>
+            </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                <div class="footer-tittle-bottom">
+                    <span>451</span>
+                    <p>Talented Hunter</p>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                <!-- Footer Bottom Tittle -->
+                <div class="footer-tittle-bottom">
+                    <span>568</span>
+                    <p>Talented Hunter</p>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+<!-- footer-bottom area -->
+<div class="footer-bottom-area footer-bg">
+    <div class="container">
+        <div class="footer-border">
+             <div class="row d-flex justify-content-between align-items-center">
+                 
+                 <div class="col-xl-2 col-lg-2">
+                     <div class="footer-social f-right">
+                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#"><i class="fab fa-twitter"></i></a>
+                         <a href="#"><i class="fas fa-globe"></i></a>
+                         <a href="#"><i class="fab fa-behance"></i></a>
+                     </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End-->
+</footer>
 
         </div>
 
@@ -83,6 +321,39 @@
     <script src="{% static 'lib/easing/easing.min.js' %}"></script>
     <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
     <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/price_rangs.js' %}"></script>
+
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/animated.headline.js' %}"></script>
+    
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- contact js -->
+    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 
     <!-- Template Javascript -->
     <script src="{% static 'js/main_index.js' %}"></script>
